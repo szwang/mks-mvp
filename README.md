@@ -1,12 +1,9 @@
-# mvp
+# PoliView
 
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.12.1.
+Interact with data about campaign finance to be a more informed voter!
 
-## Build & development
+## Description
 
-Run `grunt` for building and `grunt serve` for preview.
+Stack: AngularJS, node.js, Express, and the amazing Sunlight Foundation's API
 
-## Testing
-
-Running `grunt test` will run the unit tests with karma.
+A minimum viable product built in less than 2 days at MakerSquare.
