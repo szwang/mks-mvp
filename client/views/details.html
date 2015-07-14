@@ -18,6 +18,7 @@
   		</div>
 	</div>
 
+
 	<div id="timeline" ng-show="showTimeline">
 		<h2>Timeline</h2>
 	    <ul class="timeline" ng-class="{reverse: reverse}">
@@ -36,13 +37,22 @@
 	        </li>
 	    </ul>
 	</div>
-
+<!-- 
 	<div id="topIndustries" ng-show="showData" ng-cloak>
 		<h2>Top Contributing Organizations</h2>
 		<div>
 			<div bar-chart id="wrapper"></div>
 		</div>
-	</div>
+	</div> -->
+
+	<div id="topOrgs" ng-show="showData">
+		<h2>Top Contributing Organizations</h2>
+	    <ol class="topOrgs">
+	    	<li ng-repeat="org in data.contribOrgs">
+	    	  	<span>{{org.name}}</span>
+	    	  	<span>{{org.total_amount | currency}}</span>
+	    	</li>
+	    </ol>
 	</div>
 </div>
 
