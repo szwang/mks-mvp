@@ -19,14 +19,14 @@ angular.module('sunlightAccess', [])
 	// get id 
 	// this service runs when user hits search
 	// returns list of politicians
-	service.getList = function() {
+	service.getList = function(cb) {
 		var url = baseUrl + "entities.json?search=" + _politician + '&' + apiKey;
+		console.log('getting stuff');
 		$http({
 			method: 'GET',
 			url: url
 		}).success(function(data) {
-			return data;
-			console.log(data);
+			cb(data);
 		}).error(function(error) {
 			console.log(error);
 		})

@@ -8,15 +8,19 @@ angular.module('politicians', [])
 
 	$scope.data = {};
 
+	$scope.clicked = {}; // set when user clicks on id
+
 	// user enters name, show list of possible people/orgs
 	$scope.searchEntity = function() {
 		console.log($scope.query);
 		GetRequests.setPol($scope.query);
-		var data = GetRequests.getList();
-		// .then(function(data){
-		// 	$scope.data.result = data;
-		// 	console.log($scope.data.result);
-		// })
+		GetRequests.getList(function(data) {
+			$scope.data.resultList = data;
+		});
+	}
+
+	$scope.getOverview = function() {
+		
 	}
 
 	// user clicks on a thing, show entity overview
