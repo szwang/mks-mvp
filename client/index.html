@@ -1,21 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="poliView">
 <head>
 	<meta charset="UTF-8">
 	<title>PoliView</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles/main.css">
-	<script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/angular-resource/angular-resource.js"></script>
 </head>
 <body>
-	<h1>hello</h1>
+	<h1>PoliView</h1>
 
-	<div ng-view/>
+	<div ng-view></div>
 
-
-    <script scr="app.js"></script>
+	<script src="bower_components/angular/angular.js"></script>
+	<script src="bower_components/angular-route/angular-route.js"></script>
+	<script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="app.js"></script>
 	<script src="scripts/politician.js"></script>
 	<script src="scripts/ranks.js"></script>
 	<script src="scripts/utils.js"></script>
