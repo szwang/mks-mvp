@@ -3,10 +3,7 @@
 //**** main module ****//
 
 angular.module('poliView', [
-  'ngRoute',
-  'politicians',
-  'sunlightAccess',
-  'ranks'
+  'ngRoute'
 ])
 
 .config(function($routeProvider) {
