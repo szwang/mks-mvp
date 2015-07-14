@@ -7,7 +7,7 @@ angular.module('sunlightAccess', [])
 	var service = {};
 	var _politician = '';
 	var _id = '';
-	var apiKey = 'apikey=28cc82e5bb4a4553a5fc352e09853270'
+	var apiKey = 'apikey='
 	var baseUrl = 'http://transparencydata.com/api/1.0/';
 
 	// get id by politician name
@@ -53,7 +53,7 @@ angular.module('sunlightAccess', [])
 
 .factory('GetTop', function($http) {
 	var service = {};
-	var apiKey = 'apikey=28cc82e5bb4a4553a5fc352e09853270'
+	var apiKey = 'apikey='
 	var baseUrl = 'http://transparencydata.com/api/1.0/';
 
 	// get id by politician name
