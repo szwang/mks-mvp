@@ -19,7 +19,6 @@ angular.module('politicians', [])
 	$scope.data = {};
 	$scope.clicked = {}; 
 	$scope.terms = [];
-	$scope.reverse = true;
 
 	$scope.getTerms = function() {
 		var obj = $scope.data.resultEntity.metadata;
@@ -32,15 +31,11 @@ angular.module('politicians', [])
 	}
 
 	$scope.init = function() {
-		console.log('hi');
 		GetRequests.setId($routeParams.entityId);
-		console.log('setid run', $routeParams.entityId);
 		GetRequests.getOverview(function(data) {
 			// setID with object
 			$scope.data.resultEntity = data;
-			console.log(data);
 			$scope.getTerms();
-			console.log($scope.terms);
 			$scope.bio = $sce.trustAsHtml($scope.data.resultEntity.metadata.bio);
 		});
 	}

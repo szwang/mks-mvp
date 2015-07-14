@@ -13,11 +13,8 @@
   		<div class="btn-group" role="group">
     		<button type="button" class="btn btn-default" ng-click="showTimeline = !showTimeline">Show Timeline</button>
   		</div>
-<!--   		<div class="btn-group" role="group">
-    		<button type="button" class="btn btn-default">Show Bio</button>
-  		</div> -->
   		<div class="btn-group" role="group">
-    		<button type="button" class="btn btn-default">Show Top Contributors</button>
+    		<button type="button" class="btn btn-default" ng-click="showData = !showData">Show Top Contributors</button>
   		</div>
 	</div>
 
@@ -38,6 +35,10 @@
 	          </div>
 	        </li>
 	    </ul>
+	</div>
+
+	<div id="topIndustries" ng-show="showData">
+		<h2>Top Contributing Industries</h2>
 	</div>
 	</div>
 </div>
