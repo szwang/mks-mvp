@@ -38,6 +38,10 @@ angular.module('politicians', [])
 			$scope.getTerms();
 			$scope.bio = $sce.trustAsHtml($scope.data.resultEntity.metadata.bio);
 		});
+		GetRequests.getTopOrgs(function(data) {
+			$scope.data.contribOrgs = data;
+			console.log($scope.data.contribOrgs);
+		})
 	}
 
 })

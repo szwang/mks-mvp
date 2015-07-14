@@ -49,28 +49,17 @@ angular.module('sunlightAccess', [])
 		})
 	}
 
-	return service;
-})
-
-.factory('GetTop', function($http) {
-	var service = {};
-	var apiKey = 'apikey=28cc82e5bb4a4553a5fc352e09853270'
-	var baseUrl = 'http://transparencydata.com/api/1.0/';
-
-	// get id by politician name
-	// this service runs when user enters something into the field
-	service.getTopOrgs = function() {
-		var url = baseUrl + 'aggregates/orgs/top_10.json?cycle=2012&' + apiKey;
+	service.getTopOrgs = function(cb) {
+		var url = baseUrl + 'aggregates/pol/' + _id + '/contributors.json?cycle=2012&limit=10&' + apiKey;
 		$http({
 			method: 'GET',
 			url: url
 		}).success(function(data) {
-			console.log(data);
+			cb(data);
 		}).error(function(error) {
 			console.log(error);
 		})
 	}
-
 	return service;
 })
 
