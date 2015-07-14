@@ -9,4 +9,4 @@ var app = express();
 app.listen(port);
 console.log('Server now listening on port ' + port);
 
-app.use(express.static('app'));
+app.use(express.static('client'));
