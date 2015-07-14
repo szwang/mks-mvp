@@ -1,15 +1,16 @@
 <div id="container" ng-controller="detailCtrl" ng-init="init()">
+	<div class="col-md-8">
 	<h2>{{data.resultEntity.name}}</h2>
 
-	<h3>{{data.resultEntity.type}}</h3>
+	<h4>{{data.resultEntity.type}}</h4>
 
-	<img src="{{data.resultEntity.metadata.photo_url}}"/>
+	<img  class= "img-rounded" src="{{data.resultEntity.metadata.photo_url}}"/>
 
 	<div id="description" ng-bind-html="bio">{{bio}}</div>
 
-    <ul class="timeline">
-        <li ng-repeat="year in terms">
-          <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
+    <ul class="timeline" ng-class="{reverse: reverse}">
+        <li ng-repeat="year in terms" | orderBy:"year.year">
+          <div class="timeline-badge"><i class="glyphicon glyphicon-briefcase"></i></div>
           <div class="timeline-panel">
             <div class="timeline-heading">
               <h4 class="timeline-title">{{year.year}}</h4>
@@ -22,15 +23,5 @@
           </div>
         </li>
     </ul>
+	</div>
 </div>
-<!-- 
-	<ul class="years">
-		<li ng-repeat="year in terms">
-			<dl>
-				<dd>{{year.year}}</dd>
-				<dt>Seat</dt>
-				<dd>{{year.key.seat}}</dd>
-			</dl>
-		</li>
-	</ul>
-</div> -->

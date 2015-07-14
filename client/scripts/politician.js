@@ -19,6 +19,7 @@ angular.module('politicians', [])
 	$scope.data = {};
 	$scope.clicked = {}; 
 	$scope.terms = [];
+	$scope.reverse = true;
 
 	$scope.getTerms = function() {
 		var obj = $scope.data.resultEntity.metadata;
@@ -29,7 +30,6 @@ angular.module('politicians', [])
 			}
 		}
 	}
-
 
 	$scope.init = function() {
 		console.log('hi');
