@@ -3,15 +3,13 @@
 //**** main module ****//
 
 angular.module('poliView', [
-  'ngRoute',
-  'politicianCtrl',
-  'rankCtrl'
-  ])
+  'ngRoute'
+])
 
 .config(function($routeProvider) {
   $routeProvider
     .when('/', {
-      templateUrl: 'views/home.html',
+      templateUrl: 'index.html',
       controller: 'politicianCtrl'
     }),
     .when('/top', {
