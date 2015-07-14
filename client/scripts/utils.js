@@ -6,7 +6,7 @@ angular.module('sunlightAccess', [])
 .factory('GetRequests', function($http) {
 	var service = {};
 	var _politician = '';
-	var id = '';
+	var _id = '';
 	var apiKey = 'apikey=28cc82e5bb4a4553a5fc352e09853270'
 	var baseUrl = 'http://transparencydata.com/api/1.0/';
 
@@ -31,28 +31,45 @@ angular.module('sunlightAccess', [])
 		})
 	}
 
+	service.setId = function(obj) {
+		_id = obj.id;
+	}
+
 	// this service runs when user clicks on a rendered politician
 	service.getOverview = function() {
-		var url = baseUrl + 'entities/' + id + '.json?' + apiKey;
-		
+		var url = baseUrl + 'entities/' + _id + '.json?' + apiKey;
 		$http({
 			method: 'GET',
-			url: url,
+			url: url
+		}).success(function(data) {
+			console.log(data);
+		}).error(function(error) {
+			console.log(error);
 		})
 	}
 
 	return service;
 })
 
-.factory('getOverview', function() {
+.factory('GetTop', function($http) {
+	var service = {};
+	var apiKey = 'apikey=28cc82e5bb4a4553a5fc352e09853270'
+	var baseUrl = 'http://transparencydata.com/api/1.0/';
 
+	// get id by politician name
+	// this service runs when user enters something into the field
+	service.getTopOrgs = function() {
+		var url = baseUrl + 'aggregates/orgs/top_10.json?cycle=2012&' + apiKey;
+		$http({
+			method: 'GET',
+			url: url
+		}).success(function(data) {
+			console.log(data);
+		}).error(function(error) {
+			console.log(error);
+		})
+	}
 
+	return service;
 })
 
-.factory('getTopPols', function() {
-
-})
-
-.factory('getTopOrgs', function() {
-
-})

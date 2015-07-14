@@ -3,3 +3,4 @@
 /.tmp
 /.sass-cache
 /client/bower_components
+/client/scripts/utils
