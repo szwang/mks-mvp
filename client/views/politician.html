@@ -5,4 +5,14 @@
 		<input type="text" name="input" ng-model="query">
 	</form>
 	</div>
+
+	<div ng-show="data.resultList">
+		<ul class="entities">
+			<li ng-repeat="entity in data.resultList">
+				<span>{{entity.name}}</span>
+				<a href="#/entity/{{entity}}"></a>
+				
+			</li>
+		</ul>
+	</div>
 </div>

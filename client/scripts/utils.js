@@ -37,13 +37,13 @@ angular.module('sunlightAccess', [])
 	}
 
 	// this service runs when user clicks on a rendered politician
-	service.getOverview = function() {
+	service.getOverview = function(cb) {
 		var url = baseUrl + 'entities/' + _id + '.json?' + apiKey;
 		$http({
 			method: 'GET',
 			url: url
 		}).success(function(data) {
-			console.log(data);
+			cb(data);
 		}).error(function(error) {
 			console.log(error);
 		})
