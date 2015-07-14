@@ -3,13 +3,15 @@
 //**** main module ****//
 
 angular.module('poliView', [
-  'ngRoute'
+  'ngRoute',
+  'politicians',
+  'sunlightAccess'
 ])
 
 .config(function($routeProvider) {
   $routeProvider
     .when('/', {
-      templateUrl: 'index.html',
+      templateUrl: 'views/politician.html',
       controller: 'politicianCtrl'
     })
     .when('/top', {
@@ -20,3 +22,9 @@ angular.module('poliView', [
     	redirectTo: '/'
     })
 })
+
+.config(['$httpProvider', function($httpProvider) {
+    $httpProvider.defaults.useXDomain = true;
+    delete $httpProvider.defaults.headers.common['X-Requested-With'];
+  }
+]);
