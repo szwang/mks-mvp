@@ -18,6 +18,18 @@ angular.module('politicians', [])
 .controller('detailCtrl', function($scope, $routeParams, GetRequests) {
 	$scope.data = {};
 	$scope.clicked = {}; 
+	$scope.terms = [];
+
+	$scope.getTerms = function() {
+		var obj = $scope.data.resultEntity.metadata;
+		for (var key in obj) {
+			if(typeof obj[key] === 'object' && !Array.isArray(obj[key])) {
+				var year = key;
+				$scope.terms.push({key: obj[key], year: year});
+			}
+		}
+	}
+
 	$scope.init = function() {
 		console.log('hi');
 		GetRequests.setId($routeParams.entityId);
@@ -26,7 +38,10 @@ angular.module('politicians', [])
 			// setID with object
 			$scope.data.resultEntity = data;
 			console.log(data);
+			$scope.getTerms();
+			console.log($scope.terms);
 		});
 	}
+
 })
 	// when entering detail control, id is set

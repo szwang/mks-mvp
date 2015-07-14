@@ -1,5 +1,11 @@
 <div id="container" ng-controller="detailCtrl" ng-init="init()">
+	<h2>{{data.resultEntity.name}}</h1>
+
+	<h3>{{data.resultEntity.type}}</h2>
+
+	<img src="{{data.resultEntity.metadata.photo_url}}"/>
 	<div>
-	{{data.resultEntity}}
+	{{data.resultEntity.metadata}}
+	{{terms}}
 	</div>
 </div>
