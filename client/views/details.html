@@ -7,21 +7,37 @@
 	<img  class= "img-rounded" src="{{data.resultEntity.metadata.photo_url}}"/>
 
 	<div id="description" ng-bind-html="bio">{{bio}}</div>
+	
 
-    <ul class="timeline" ng-class="{reverse: reverse}">
-        <li ng-repeat="year in terms" | orderBy:"year.year">
-          <div class="timeline-badge"><i class="glyphicon glyphicon-briefcase"></i></div>
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="timeline-title">{{year.year}}</h4>
-              <p><small class="text-muted"><i class="glyphicon glyphicon-menu-right"></i> Seat: {{year.key.seat}}</small></p>
-	          <p><small class="text-muted"><i class="glyphicon glyphicon-menu-right"></i> Party: {{year.key.party}}</small></p>
-            </div>
-            <div class="timeline-body">
-              <p></p>
-            </div>
-          </div>
-        </li>
-    </ul>
+	<div class="btn-group btn-group-justified" role="group" aria-label="...">
+  		<div class="btn-group" role="group">
+    		<button type="button" class="btn btn-default" ng-click="showTimeline = !showTimeline">Show Timeline</button>
+  		</div>
+<!--   		<div class="btn-group" role="group">
+    		<button type="button" class="btn btn-default">Show Bio</button>
+  		</div> -->
+  		<div class="btn-group" role="group">
+    		<button type="button" class="btn btn-default">Show Top Contributors</button>
+  		</div>
+	</div>
+
+	<div id="timeline" ng-show="showTimeline">
+		<h2>Timeline</h2>
+	    <ul class="timeline" ng-class="{reverse: reverse}">
+	        <li ng-repeat="year in terms" | orderBy:"year.year">
+	          <div class="timeline-badge"><i class="glyphicon glyphicon-briefcase"></i></div>
+	          <div class="timeline-panel">
+	            <div class="timeline-heading">
+	              <h4 class="timeline-title">{{year.year}}</h4>
+	              <p><small class="text-muted"><i class="glyphicon glyphicon-menu-right"></i> Seat: {{year.key.seat}}</small></p>
+		          <p><small class="text-muted"><i class="glyphicon glyphicon-menu-right"></i> Party: {{year.key.party}}</small></p>
+	            </div>
+	            <div class="timeline-body">
+	              <p></p>
+	            </div>
+	          </div>
+	        </li>
+	    </ul>
+	</div>
 	</div>
 </div>
