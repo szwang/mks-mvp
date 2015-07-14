@@ -19,7 +19,7 @@ angular.module('poliView', [
     	templateUrl: 'views/ranks.html',
     	controller: 'rankCtrl'
     })
-    .when('/entity/:entityName', {
+    .when('/entity/:entityId', {
       templateUrl: 'views/details.html',
       controller: 'detailCtrl'
     })

@@ -15,16 +15,18 @@ angular.module('politicians', [])
 	}
 })
 
-.controller('detailCtrl', function($scope, GetRequests) {
+.controller('detailCtrl', function($scope, $routeParams, GetRequests) {
 	$scope.data = {};
-	$scope.clicked = {}; // set when user clicks on id
-	
-	// user clicks on a thing, show entity overview
-	$scope.getOverview = function() {
-		// setID with object
-		GetRequests.setId($scope.clicked);
+	$scope.clicked = {}; 
+	$scope.init = function() {
+		console.log('hi');
+		GetRequests.setId($routeParams.entityId);
+		console.log('setid run', $routeParams.entityId);
 		GetRequests.getOverview(function(data) {
+			// setID with object
 			$scope.data.resultEntity = data;
+			console.log(data);
 		});
 	}
 })
+	// when entering detail control, id is set

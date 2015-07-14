@@ -32,8 +32,8 @@ angular.module('sunlightAccess', [])
 		})
 	}
 
-	service.setId = function(obj) {
-		_id = obj.id;
+	service.setId = function(id) {
+		_id = id;
 	}
 
 	// this service runs when user clicks on a rendered politician
