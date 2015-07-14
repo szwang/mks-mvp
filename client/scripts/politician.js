@@ -3,12 +3,8 @@ angular.module('politicians', [])
 
 .controller('politicianCtrl', function($scope, GetRequests) {
 	$scope.name = '';
-
 	$scope.query = '';
-
 	$scope.data = {};
-
-	$scope.clicked = {}; // set when user clicks on id
 
 	// user enters name, show list of possible people/orgs
 	$scope.searchEntity = function() {
@@ -17,7 +13,13 @@ angular.module('politicians', [])
 			$scope.data.resultList = data;
 		});
 	}
+})
 
+.controller('detailCtrl', function($scope, GetRequests) {
+	$scope.data = {};
+	$scope.clicked = {}; // set when user clicks on id
+	
+	// user clicks on a thing, show entity overview
 	$scope.getOverview = function() {
 		// setID with object
 		GetRequests.setId($scope.clicked);
@@ -25,6 +27,4 @@ angular.module('politicians', [])
 			$scope.data.resultEntity = data;
 		});
 	}
-
-	// user clicks on a thing, show entity overview
 })

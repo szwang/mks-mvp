@@ -9,9 +9,8 @@
 	<div ng-show="data.resultList">
 		<ul class="entities">
 			<li ng-repeat="entity in data.resultList">
-				<span>{{entity.name}}</span>
-				<a href="#/entity/{{entity}}"></a>
-				
+				<a href="#/entity/{{entity.name}}">{{entity.name}}</a>
+				<span>{{entity.type}}</span>
 			</li>
 		</ul>
 	</div>
