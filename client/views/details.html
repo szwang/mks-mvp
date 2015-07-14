@@ -1,11 +1,36 @@
 <div id="container" ng-controller="detailCtrl" ng-init="init()">
-	<h2>{{data.resultEntity.name}}</h1>
+	<h2>{{data.resultEntity.name}}</h2>
 
-	<h3>{{data.resultEntity.type}}</h2>
+	<h3>{{data.resultEntity.type}}</h3>
 
 	<img src="{{data.resultEntity.metadata.photo_url}}"/>
-	<div>
-	{{data.resultEntity.metadata}}
-	{{terms}}
-	</div>
+
+	<div id="description" ng-bind-html="bio">{{bio}}</div>
+
+    <ul class="timeline">
+        <li ng-repeat="year in terms">
+          <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">{{year.year}}</h4>
+              <p><small class="text-muted"><i class="glyphicon glyphicon-menu-right"></i> Seat: {{year.key.seat}}</small></p>
+	          <p><small class="text-muted"><i class="glyphicon glyphicon-menu-right"></i> Party: {{year.key.party}}</small></p>
+            </div>
+            <div class="timeline-body">
+              <p></p>
+            </div>
+          </div>
+        </li>
+    </ul>
 </div>
+<!-- 
+	<ul class="years">
+		<li ng-repeat="year in terms">
+			<dl>
+				<dd>{{year.year}}</dd>
+				<dt>Seat</dt>
+				<dd>{{year.key.seat}}</dd>
+			</dl>
+		</li>
+	</ul>
+</div> -->
