@@ -303,6 +303,7 @@ body {
     transform: scale(1);
   }
 }
+
 @media (max-width: 767px) {
     ul.timeline:before {
         left: 40px;
