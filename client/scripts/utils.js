@@ -60,6 +60,18 @@ angular.module('sunlightAccess', [])
 			console.log(error);
 		})
 	}
+
+	service.getTopPols = function(cb) {
+		var url = baseUrl + 'aggregates/pols/top_20.json?cycle=2012&' + apiKey;
+		$http({
+			method: 'GET',
+			url: url
+		}).success(function(data) {
+			cb(data);
+		}).error(function(error) {
+			console.log(error);
+		})
+	}
 	return service;
 })
 

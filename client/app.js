@@ -5,7 +5,6 @@
 angular.module('poliView', [
   'ngRoute',
   'politicians',
-  'ranks',
   'sunlightAccess'
 ])
 
@@ -17,7 +16,7 @@ angular.module('poliView', [
     })
     .when('/top', {
     	templateUrl: 'views/ranks.html',
-    	controller: 'rankCtrl'
+    	controller: 'ranksCtrl'
     })
     .when('/entity/:entityId', {
       templateUrl: 'views/details.html',

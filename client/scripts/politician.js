@@ -14,6 +14,16 @@ angular.module('politicians', [])
 	}
 })
 
+.controller('ranksCtrl', function($scope, GetRequests) {
+	$scope.data = {};
+	$scope.init = function() {
+		GetRequests.getTopPols(function(data) {
+			$scope.data.polRank = data;
+		})
+		console.log('hi');
+	}
+})
+
 .controller('detailCtrl', function($scope, $routeParams, $sce, GetRequests) {
 	$scope.data = {};
 	$scope.clicked = {}; 
@@ -21,12 +31,25 @@ angular.module('politicians', [])
 
 	$scope.getTerms = function() {
 		var obj = $scope.data.resultEntity.metadata;
-		for (var key in obj) {
-			if(typeof obj[key] === 'object' && !Array.isArray(obj[key])) {
-				var year = key;
-				$scope.terms.push({key: obj[key], year: year});
-			}
-		}
+
+		// code courtesy of Kyle
+		var detailsList = Object.keys(obj)
+			.filter(function filterer(key){
+				return (typeof obj[key] === 'object' && !Array.isArray(obj[key]));
+			})
+			.map(function mapper(key){
+				return {key: obj[key], year: key}
+			});
+
+		$scope.terms = $scope.terms.concat(detailsList);
+
+
+		// for (var key in obj) {
+		// 	if(typeof obj[key] === 'object' && !Array.isArray(obj[key])) {
+		// 		var year = key;
+		// 		$scope.terms.push({key: obj[key], year: year});
+		// 	}
+		// }
 	}
 
 	$scope.init = function() {

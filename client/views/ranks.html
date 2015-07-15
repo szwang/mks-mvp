@@ -1,4 +1,23 @@
-<div id="ranks" ng-controller="rankCtrl">
+<div ng-controller="ranksCtrl" ng-init="init()">
  	
- 	<div ng-model="lists"> heyyy</div>
+ 	<div>
+		<h3>Top Politicians by Money Received</h3>
+	    <ol>
+	    	<li ng-repeat="pol in data.polRank">
+	    	  	<a href="#/entity/{{pol.id}}" class="entityName">{{pol.name}}</a>
+	    	  	<span class= "rankedAmount">{{pol.amount | currency}}</span>
+	    	</li>
+	    </ol>
+	</div>
+
+ 	<div>
+		<h3>Top Organizations by Money Donated</h3>
+	    <ol>
+	    	<li ng-repeat="pol in data.polRank">
+	    	  	<span class="entityName">{{pol.name}}</span>
+	    	  	<span class= "rankedAmount">{{pol.amount | currency}}</span>
+	    	</li>
+	    </ol>
+	</div>
+
  </div>
