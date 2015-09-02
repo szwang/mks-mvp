@@ -21,7 +21,7 @@ angular.module('sunlightAccess', [])
 	// returns list of politicians
 	service.getList = function(cb) {
 		var url = baseUrl + "entities.json?search=" + _politician + '&' + apiKey;
-		console.log('getting stuff');
+		console.log('getting stuff with this url: ', url);
 		$http({
 			method: 'GET',
 			url: url
